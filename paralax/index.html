@@ -3,24 +3,73 @@
 <head>
 	<meta charset="UTF-8">
 	<title>paralax</title>
+	<style>
+	 * {
+	 	margin:0;
+	 	padding: 0;
+	 }
+
+	 html,body {height: 100%;}
+
+	 .paralax {
+	 	
+	 	max-width: 1920px;
+	 	min-height: 100%;
+	 	background-attachment: fixed;
+	 	position: relative;
+	 	background-size:cover;
+	 }
+
+	 article {
+	 	color:#fff;
+	 	position: absolute;
+	 	top:50%;
+	 	left:50%;
+	 	-webkit-transform: translate(-50%,-50%);
+	 	-ms-transform: translate(-50%,-50%);
+	 	-o-transform: translate(-50%,-50%);
+	 	transform: translate(-50%,-50%);
+	 }
+
+	#a {background: url(img/bg1.jpg) no-repeat;}
+	#b {background: url(img/comsombra.jpg) no-repeat;}
+	
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$(".paralax").each(function() {
+				var $obj = $(this);
+
+				$(window).scroll(function() {
+					var y = -($(window).scrollTop() / $obj.data("speed"));
+					console.log(y);
+					var pos = "50%" + " " + y + "px";
+					$obj.css("backgroundPosition",pos);
+				});
+
+				
+			});
+		});
+	</script>
 </head>
 <body>
-	<div class="paralax">
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis velit quidem perspiciatis dolorem dolor debitis quam error ipsa officia, qui necessitatibus magni ab mollitia enim nostrum, ipsam voluptate itaque, voluptatibus.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit at ab mollitia sequi cumque fuga autem expedita, cum, voluptatibus quia unde, ipsum, fugiat commodi accusantium sapiente! Optio dolor, vitae alias!
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit hic neque ut reiciendis architecto, a fuga ratione recusandae provident nam eligendi quod tenetur veniam doloribus necessitatibus, quisquam laudantium illum. Aspernatur!
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quas modi adipisci fugit dolorem, sit quibusdam tempore necessitatibus voluptas pariatur delectus veniam omnis a nostrum nobis ipsum dignissimos blanditiis accusantium! Unde tempore, atque perspiciatis quam animi recusandae assumenda provident, velit sint culpa nulla, aperiam odio? Tenetur cum obcaecati culpa pariatur rem. Unde officiis quaerat dignissimos consequuntur tempora, obcaecati perspiciatis. Adipisci magnam quisquam dolorem rerum perspiciatis, maiores quasi impedit ipsam obcaecati iste natus, omnis laborum repellendus, autem quo neque deserunt doloribus similique excepturi! Magni, sed debitis natus beatae nobis iste nisi eum est asperiores enim. Doloremque expedita ipsum assumenda labore dicta?
-		</p>
+	<div class="paralax" data-speed="35" id="a">
+		<article>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores animi iste illo at dolorem voluptates labore sed odio deleniti qui, eveniet vitae, molestiae praesentium vel optio eos adipisci blanditiis ipsum, ex dolorum provident veritatis. Possimus a quidem esse autem numquam temporibus mollitia voluptate quis officiis eum aliquid magnam, suscipit maiores eligendi similique? Quisquam a nulla laborum recusandae voluptatem unde, aliquam blanditiis, amet doloremque consequatur quidem nemo officiis. Asperiores itaque error, dolorum laboriosam, pariatur officia autem at hic qui minima fugit inventore esse obcaecati repudiandae voluptas aperiam nobis voluptatibus nam. Reiciendis temporibus, doloremque veritatis nobis. Porro ipsam deleniti dignissimos sunt optio?
+			</p>
+		</article>
+		
+	</div>
+	<div class="paralax" data-speed="5" id="b">
+		<article>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores animi iste illo at dolorem voluptates labore sed odio deleniti qui, eveniet vitae, molestiae praesentium vel optio eos adipisci blanditiis ipsum, ex dolorum provident veritatis. Possimus a quidem esse autem numquam temporibus mollitia voluptate quis officiis eum aliquid magnam, suscipit maiores eligendi similique? Quisquam a nulla laborum recusandae voluptatem unde, aliquam blanditiis, amet doloremque consequatur quidem nemo officiis. Asperiores itaque error, dolorum laboriosam, pariatur officia autem at hic qui minima fugit inventore esse obcaecati repudiandae voluptas aperiam nobis voluptatibus nam. Reiciendis temporibus, doloremque veritatis nobis. Porro ipsam deleniti dignissimos sunt optio?
+			</p>
+		</article>
+		
 	</div>
 </body>
 </html>
